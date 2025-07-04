@@ -115,7 +115,82 @@ If you're using **Java or Spring Boot**, download the JDBC driver:
 
 ---
 
-Would you like me to help you:
+That error means `psql` is not in your system’s **PATH environment variable**, so Windows doesn’t know where to find it.
+
+Let’s fix it ✅
+
+---
+
+### ✅ Step-by-Step: Make `psql` Work on Command Prompt (Windows)
+
+---
+
+### 🔍 1. **Find the `psql.exe` location**
+
+Usually it’s installed at:
+
+```
+C:\Program Files\PostgreSQL\<version>\bin
+```
+
+Example:
+
+```
+C:\Program Files\PostgreSQL\16\bin\psql.exe
+```
+
+---
+
+### 🛠️ 2. **Add it to your System PATH**
+
+#### 👉 Steps:
+
+1. Press `Windows + S` and search **Environment Variables**
+2. Click **Edit the system environment variables**
+3. Click **Environment Variables**
+4. In the **System variables** section, find `Path` and click **Edit**
+5. Click **New**, then paste:
+
+```
+C:\Program Files\PostgreSQL\16\bin
+```
+
+(Replace `16` with your actual version if different)
+
+6. Click **OK** on all dialogs
+
+---
+
+### 🔁 3. **Restart Command Prompt**
+
+Close the old command prompt, open a new one, then try:
+
+```bash
+psql -U postgres
+```
+
+---
+
+### ✅ You should now see:
+
+```text
+Password for user postgres:
+```
+
+---
+
+### 🆘 If you're unsure of the version or path:
+
+Search for `psql.exe` in File Explorer:
+
+* Open `C:\Program Files\PostgreSQL\`
+* Open any version folder (like `16`)
+* Go into `bin\`
+* You should see `psql.exe`
+
+---
+
+
 
 * Write SQL queries?
 * Connect with Java?
