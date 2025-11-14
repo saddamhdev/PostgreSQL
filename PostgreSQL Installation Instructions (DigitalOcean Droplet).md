@@ -107,7 +107,8 @@ If your app runs **on the same droplet**, you don’t need this (local connectio
 ### 6️⃣ Restart PostgreSQL
 
 ```bash
-sudo systemctl restart postgresql
+sudo service pgsql restart
+
 ```
 
 ---
